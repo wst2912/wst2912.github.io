@@ -1,2 +1,81 @@
-# LearningNote
-A page to record learning content.
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>文章列表</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+        }
+
+        #sidebar {
+            width: 30%;
+            padding: 20px;
+            background-color: #f4f4f4;
+            border-right: 1px solid #ccc;
+        }
+
+        #content {
+            flex: 1;
+            padding: 20px;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            margin-bottom: 10px;
+            cursor: pointer;
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        p {
+            line-height: 1.6;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="sidebar">
+        <ul id="article-list">
+            <li onclick="showContent('article1')">文章一</li>
+            <li onclick="showContent('article2')">文章二</li>
+            <!-- 添加更多文章名稱 -->
+        </ul>
+    </div>
+
+    <div id="content">
+        <h2 id="article-title">歡迎閱讀</h2>
+        <p id="article-content">請點擊左側文章名稱查看內容。</p>
+    </div>
+
+    <script>
+        function showContent(articleId) {
+            // 根據文章ID更新內容
+            var titleElement = document.getElementById('article-title');
+            var contentElement = document.getElementById('article-content');
+
+            // 這裡可以根據articleId從後端或其他地方取得文章內容
+            // 這裡簡單示範了兩篇文章的內容
+            if (articleId === 'article1') {
+                titleElement.textContent = '文章一';
+                contentElement.textContent = '這是文章一的內容。';
+            } else if (articleId === 'article2') {
+                titleElement.textContent = '文章二';
+                contentElement.textContent = '這是文章二的內容。';
+            }
+            // 添加更多文章內容
+        }
+    </script>
+
+</body>
+</html>
+
